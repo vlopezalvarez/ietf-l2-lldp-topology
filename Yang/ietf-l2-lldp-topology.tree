@@ -1,0 +1,14 @@
+module: ietf-l2-lldp-topology
+  augment /nw:networks/nw:network/nw:network-types:
+    +--rw lldp-topology!
+  augment /nw:networks/nw:network/nw:node/nt:termination-point/l2t:l2-termination-point-attributes:
+    +--rw lldp-termination-point-attributes
+       +--rw enable?            boolean
+       +--ro neighbor?          yang:mac-address
+       +--ro age?               uint64
+       +--rw ttl?               uint16
+       +--ro lldp-tlvs-state
+          +--ro sys-name?           string
+          +--ro sys-desc?           string
+          +--ro port-id?            string
+          +--ro port-description?   string
